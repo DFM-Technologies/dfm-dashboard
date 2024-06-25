@@ -6,10 +6,12 @@ import android.content.res.Resources;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import java.util.List;
 
@@ -67,12 +69,12 @@ public class ProbeListActivity extends BaseActivity<ProbeListContract.Presenter,
         ProbeStatus probeStatus = ProbeStatus.getStatus(intent.getIntExtra(ARG_PROBE_STATUS, ProbeStatus.ALL_PROBES.getStatus()));
 
         this.setupActionBar(this.toolbar, this.getProbeStatusTitle(probeStatus));
-//        ActionBar actionBar = this.getSupportActionBar(); //todo back arrow
-//        if(actionBar != null) {
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//            actionBar.setDisplayShowTitleEnabled(true);
-//            actionBar.setHomeAsUpIndicator(VectorDrawableCompat.create(getResources(), R.ic_back_arrow, getTheme()));
-//        }
+        ActionBar actionBar = this.getSupportActionBar(); //back arrow
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setHomeAsUpIndicator(VectorDrawableCompat.create(getResources(), R.drawable.ic_arrow_back, getTheme()));
+        }
 
         this.probeListAdapter = new ProbeListAdapter(this);
         this.probeListAdapter.getOnItemClickedSubject()
