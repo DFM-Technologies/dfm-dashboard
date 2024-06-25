@@ -31,7 +31,6 @@ import za.co.dfmsoftware.utility.utils.PreferenceHelper;
 /**
  * 25/06/2024 - DONE BY NEHEMIAH PIETERSEN
  * PROBE DETAILS ACTIVITY
- * This is the Probe Details Activity that will be responsible for:
  */
 public class ProbeDetailsActivity extends BaseActivity<ProbeDetailsContract.Presenter, ProbeDetailsContract.View> implements ProbeDetailsContract.View {
     public static String ARG_PROBE_ID = "probe.id";

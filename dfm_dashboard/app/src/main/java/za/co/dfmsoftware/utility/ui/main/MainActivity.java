@@ -14,6 +14,7 @@ import za.co.dfmsoftware.utility.model.model.User;
 import za.co.dfmsoftware.utility.realm.DfmRealm;
 import za.co.dfmsoftware.utility.ui.base.BaseActivity;
 import za.co.dfmsoftware.utility.ui.fragment.dashboard.DashboardFragment;
+import za.co.dfmsoftware.utility.ui.fragment.profile.ProfileFragment;
 import za.co.dfmsoftware.utility.ui.login.LoginActivity;
 
 /**
@@ -77,11 +78,10 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
             int itemId = item.getItemId();
             if(itemId == R.id.nav_dashboard_bot) {
                 this.showFragment(DashboardFragment.class, false);
-//                this.setupFragmentToolbarTitle(this.toolbar);
+                this.setupFragmentToolbarTitle(this.toolbar);
             }else if(itemId == R.id.nav_profile_bot) {
-                System.out.println("profile pressed");
-//                this.showFragment(ProfileFragment.class, false);
-//                this.setupFragmentToolbarTitle(this.toolbar);
+                this.showFragment(ProfileFragment.class, false);
+                this.setupFragmentToolbarTitle(this.toolbar);
             }
         }catch (Exception e) {
             Logger.e(TAG, "Error on menu item: ", e);
