@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <za.co.dfmsoftware.utility.ui.view.GraphTypeSelectorView
+        android:id="@+id/graph_type_selector_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <za.co.dfmsoftware.utility.ui.view.GraphDaySelectorView
+        android:id="@+id/graph_days_selector_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

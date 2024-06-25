@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">DFM Dashboard</string>
+
+    <!-- LOGIN -->
+    <string name="login_button_label">Login</string>
+    <string name="user_email_label">Email Address:</string>
+    <string name="user_email">Enter email address</string>
+    <string name="user_password_label">Password:</string>
+    <string name="user_password">Enter password</string>
+    <string name="user_email_error">Enter a valid email address</string>
+    <string name="user_password_error">Enter valid password</string>
+    <string name="login_error">Error Logging in</string>
+    <string name="login_error_description">Authentication Failed. Please enter valid user credentials</string>
+    <string name="user_email_autofill">UserEmail</string>
+    <string name="user_password_autofill">UserPassword</string>
+
+    <!-- LOGOUT -->
+    <string name="logout_button_label">Logout</string>
+    <string name="logout_error">Error Logging out</string>
+
+    <!-- MISC LABELS -->
+    <string name="dfm_logo_label">DFM Logo</string>
+    <string name="ok_label">OK</string>
+    <string name="view_all_label">View all</string>
+    <string name="please_wait_label">Please wait</string>
+    <string name="refresh_label">Refresh</string>
+    <string name="none_label">None</string>
+    <string name="all_label">All</string>
+    <string name="raw_label">Raw</string>
+    <string name="water_label">Water</string>
+    <string name="level_label">Level</string>
+    <string name="sum_label">sum</string>
+    <string name="overview_label">Overview</string>
+    <string name="password_toggle_label">Toggle Password</string>
+    <string name="block_label">Block:</string>
+    <string name="probeId_label">Probe:</string>
+
+    <!-- BOTTOM NAV BAR -->
+    <string name="bot_nav_dashboard">Dashboard</string>
+    <string name="bot_nav_profile">Profile</string>
+
+    <!-- PROBE DETAILS -->
+    <string name="probe_details_label">Probe Details</string>
+    <string name="very_wet_label">Very Wet</string>
+    <string name="wet_label">Wet</string>
+    <string name="good_label">Good</string>
+    <string name="almost_dry_label">Almost Dry</string>
+    <string name="dry_label">Dry</string>
+    <string name="very_dry_label">Very Dry</string>
+    <string name="day_7_label">7 days</string>
+    <string name="day_14_label">14 days</string>
+    <string name="day_30_label">30 days</string>
+    <string name="day_60_label">60 days</string>
+
+</resources>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="url_probe_details">https://probes.dfmsoftware.co.za/mobilegraph/view?ProbeId=%d&amp;Days=%d&amp;GraphType=%d</string>
+</resources>

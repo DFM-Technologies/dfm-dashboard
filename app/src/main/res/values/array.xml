@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="probeStatusColor">
+        <item>@color/transparent</item>
+        <item>@color/materialBlue60</item>
+        <item>@color/materialCyan60</item>
+        <item>@color/materialGreen60</item>
+        <item>@color/materialYellow</item>
+        <item>@color/materialRed60</item>
+        <item>@color/materialBrown60</item>
+    </array>
+
+    <string-array name="probeStatusTitle">
+        <item>@string/none_label</item>
+        <item>@string/very_wet_label</item>
+        <item>@string/wet_label</item>
+        <item>@string/good_label</item>
+        <item>@string/almost_dry_label</item>
+        <item>@string/dry_label</item>
+        <item>@string/very_dry_label</item>
+    </string-array>
+
+
+    <string-array name="graphFilterSelectionDaysTitles">
+        <item>@string/day_7_label</item>
+        <item>@string/day_14_label</item>
+        <item>@string/day_30_label</item>
+        <item>@string/day_60_label</item>
+    </string-array>
+
+    <array name="graphFilterSelectionDays">
+        <item>7</item>
+        <item>14</item>
+        <item>30</item>
+        <item>60</item>
+    </array>
+</resources>

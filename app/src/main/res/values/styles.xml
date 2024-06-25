@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextViewParagraph" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Graph filter view -->
+    <style name="GraphFilterTypeButton">
+        <item name="android:background">@drawable/graph_filter_type_radio_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/graph_filter_type_group_button_text</item>
+    </style>
+
+    <style name="GraphFilterTypeRadioGroup">
+        <item name="android:background">@drawable/graph_filter_radio_group_background</item>
+    </style>
+</resources>

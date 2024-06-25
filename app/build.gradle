@@ -1,0 +1,73 @@
+plugins {
+    alias(libs.plugins.android.application)
+    id "realm-android" //added realm plugin
+}
+
+android {
+    namespace 'za.co.dfmsoftware.utility'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "za.co.dfmsoftware.utility"
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //API-Endpoint
+        buildConfigField "String", "API_ENDPOINT", "\"https://api.dfmsoftware.co.za/v1/\""
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    buildTypes {
+        customDebugType{
+            debuggable true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    viewBinding{
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.swiperefreshlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    //retrofit and RxJava dependencies
+    implementation libs.gson //adds gson to mobile app
+    implementation libs.retrofit //adds retrofit library to mobile app
+    implementation libs.converter.gson //help gson
+    implementation libs.okhttp //adds modern applications for mobile app
+    implementation libs.logging.interceptor
+    implementation libs.rxjava
+    implementation libs.rxandroid
+    implementation libs.adapter.rxjava2
+    implementation libs.flexbox
+
+}
+
+realm {
+    syncEnabled = true //enables Realm mobile platform
+}
