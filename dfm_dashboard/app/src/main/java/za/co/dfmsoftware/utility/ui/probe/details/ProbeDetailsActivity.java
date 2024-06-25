@@ -2,6 +2,7 @@ package za.co.dfmsoftware.utility.ui.probe.details;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -134,5 +135,14 @@ public class ProbeDetailsActivity extends BaseActivity<ProbeDetailsContract.Pres
     @Override
     public GraphFilterSelection getCurrentFilterSelection() {
         return this.graphFilterView.getCurrentFilterSelection();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

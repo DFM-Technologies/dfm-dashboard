@@ -108,7 +108,7 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         }
     }
 
-    //=====
+    //TOOLBAR NAV
     protected void setupActionBar(@Nullable Toolbar toolbar, @StringRes int title){
         String titleString = this.getString(title);
         this.setupActionBar(toolbar, titleString);

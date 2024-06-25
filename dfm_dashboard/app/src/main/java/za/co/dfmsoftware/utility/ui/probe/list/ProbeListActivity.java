@@ -3,6 +3,7 @@ package za.co.dfmsoftware.utility.ui.probe.list;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,7 +62,7 @@ public class ProbeListActivity extends BaseActivity<ProbeListContract.Presenter,
         probeListView = findViewById(R.id.probes_list_view);
 
         Intent intent = this.getIntent();
-        if(!intent.hasExtra(ARG_PROBE_STATUS)) {
+        if (!intent.hasExtra(ARG_PROBE_STATUS)) {
             throw new IllegalArgumentException("No probe Status was set on the activity intent.");
         }
 
@@ -69,8 +70,8 @@ public class ProbeListActivity extends BaseActivity<ProbeListContract.Presenter,
         ProbeStatus probeStatus = ProbeStatus.getStatus(intent.getIntExtra(ARG_PROBE_STATUS, ProbeStatus.ALL_PROBES.getStatus()));
 
         this.setupActionBar(this.toolbar, this.getProbeStatusTitle(probeStatus));
-        ActionBar actionBar = this.getSupportActionBar(); //back arrow
-        if(actionBar != null) {
+        ActionBar actionBar = this.getSupportActionBar();
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setHomeAsUpIndicator(VectorDrawableCompat.create(getResources(), R.drawable.ic_arrow_back, getTheme()));
@@ -92,12 +93,12 @@ public class ProbeListActivity extends BaseActivity<ProbeListContract.Presenter,
     }
 
     @Override
-    public void showProbesList(@NonNull List<Probe> probeList) { //displays probe list
+    public void showProbesList(@NonNull List<Probe> probeList) {
         this.probeListAdapter.clearAndApply(probeList);
     }
 
     @Override
-    public void showProbeDetailsScreen(@NonNull Probe probe) { //if probe is selected from probe list call this method
+    public void showProbeDetailsScreen(@NonNull Probe probe) {
         Intent graphDetailsIntent = new Intent(this, ProbeDetailsActivity.class);
         graphDetailsIntent.putExtra(ProbeDetailsActivity.ARG_PROBE_ID, probe.getProbeId());
         this.startActivity(graphDetailsIntent);
@@ -106,16 +107,25 @@ public class ProbeListActivity extends BaseActivity<ProbeListContract.Presenter,
     private String getProbeStatusTitle(@NonNull ProbeStatus probeStatus) {
         Resources resources = this.getResources();
 
-        if(probeStatus == ProbeStatus.ALL_PROBES) {
+        if (probeStatus == ProbeStatus.ALL_PROBES) {
             return resources.getString(R.string.all_label);
         }
 
         String[] titles = resources.getStringArray(R.array.probeStatusColor);
 
-        if(probeStatus.getStatus() >= titles.length) {
+        if (probeStatus.getStatus() >= titles.length) {
             return resources.getString(R.string.none_label);
         }
 
         return titles[probeStatus.getStatus()];
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

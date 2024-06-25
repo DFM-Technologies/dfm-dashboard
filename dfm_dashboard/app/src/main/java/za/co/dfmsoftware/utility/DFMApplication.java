@@ -25,5 +25,7 @@ public class DFMApplication extends Application {
 
         DfmRetrofit dfmRetrofit = DfmRetrofit.getInstance();
         dfmRetrofit.init(realmContext);
+
+        //TODO add Crashlytics to project
     }
 }

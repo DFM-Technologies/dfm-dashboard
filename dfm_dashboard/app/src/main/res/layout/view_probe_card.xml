@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- hard coded values -->
     <androidx.cardview.widget.CardView
         android:layout_width="230dp"
         android:layout_height="230dp"
@@ -13,7 +14,6 @@
         android:layout_margin="8dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="8dp">
-        <!--todo Add Card dimensions-->
 
         <RelativeLayout
             android:layout_width="match_parent"
