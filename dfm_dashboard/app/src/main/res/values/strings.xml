@@ -34,6 +34,8 @@
     <string name="password_toggle_label">Toggle Password</string>
     <string name="block_label">Block:</string>
     <string name="probeId_label">Probe:</string>
+    <string name="delete_account_label">Delete My Account</string>
+    <string name="profile_photo_label">Profile Photo</string>
 
     <!-- BOTTOM NAV BAR -->
     <string name="bot_nav_dashboard">Dashboard</string>
