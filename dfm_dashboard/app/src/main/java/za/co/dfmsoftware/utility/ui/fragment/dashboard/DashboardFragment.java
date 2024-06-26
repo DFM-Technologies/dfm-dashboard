@@ -58,7 +58,7 @@ public class DashboardFragment extends BaseFragment<DashboardContract.Presenter,
 
         this.viewPullRefresh.setOnRefreshListener(() -> this.presenter.reloadProbes());
 
-        // Use MenuHost and MenuProvider for managing the options menu
+        //use MenuHost and MenuProvider for managing the options menu
         MenuHost menuHost = requireActivity();
         menuHost.addMenuProvider(new MenuProvider() {
             @Override
@@ -82,6 +82,7 @@ public class DashboardFragment extends BaseFragment<DashboardContract.Presenter,
 
     @Override
     public boolean setToolbarTitle(@NonNull TextView title) {
+//todo        fix title.setText(R.string.bot_nav_dashboard);
         title.setText(R.string.bot_nav_dashboard);
         return true;
     }

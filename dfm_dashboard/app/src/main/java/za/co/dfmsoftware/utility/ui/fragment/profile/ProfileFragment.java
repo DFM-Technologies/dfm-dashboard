@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.lifecycle.Lifecycle;
@@ -31,9 +32,7 @@ public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, Pro
 
     @Nullable
     @Override
-    protected ProfileContract.Presenter getPresenter() {
-        return this.presenter;
-    }
+    protected ProfileContract.Presenter getPresenter() { return this.presenter; }
 
     @Override
     protected void setupViews(View view) {
@@ -43,7 +42,7 @@ public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, Pro
         //set up MenuProvider
         requireActivity().addMenuProvider(new MenuProvider() {
             @Override
-            public void onCreateMenu(Menu menu, MenuInflater menuInflater) {
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
                 menuInflater.inflate(R.menu.profile_action_menu, menu);
             }
 

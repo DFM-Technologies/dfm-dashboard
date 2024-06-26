@@ -20,7 +20,6 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void init() {
         User currentUser = this.dfmRealm.getCurrentUser();
         //todo fix the user info
-        System.out.println("USER: " + currentUser.getUsername());
         this.view.setEmailAddress(currentUser.getUsername());
     }
 

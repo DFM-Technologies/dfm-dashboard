@@ -14,7 +14,7 @@ public class User extends RealmObject {
 
     //variables
     @PrimaryKey
-    @SerializedName("username")
+    @SerializedName("userName")
     private String username;
 
     @SerializedName("access_token")

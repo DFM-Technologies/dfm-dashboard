@@ -53,7 +53,7 @@ public abstract class BaseFragment <P extends BasePresenter<V>, V extends BaseVi
         return  view;
     }
 
-    //===
+    //todo ?===
     public boolean setToolbarTitle(@NonNull TextView title) { return false; }
 
     protected abstract

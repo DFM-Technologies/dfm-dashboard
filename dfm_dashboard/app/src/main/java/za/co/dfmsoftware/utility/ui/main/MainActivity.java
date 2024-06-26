@@ -78,10 +78,10 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
             int itemId = item.getItemId();
             if(itemId == R.id.nav_dashboard_bot) {
                 this.showFragment(DashboardFragment.class, false);
-                this.setupFragmentToolbarTitle(this.toolbar);
+//                this.setupFragmentToolbarTitle(this.toolbar);
             }else if(itemId == R.id.nav_profile_bot) {
                 this.showFragment(ProfileFragment.class, false);
-                this.setupFragmentToolbarTitle(this.toolbar);
+//                this.setupFragmentToolbarTitle(this.toolbar);
             }
         }catch (Exception e) {
             Logger.e(TAG, "Error on menu item: ", e);

@@ -9,6 +9,7 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
+import za.co.dfmsoftware.utility.Logger;
 import za.co.dfmsoftware.utility.model.enums.ProbeStatus;
 import za.co.dfmsoftware.utility.model.model.Probe;
 import za.co.dfmsoftware.utility.model.model.User;
@@ -19,6 +20,7 @@ import za.co.dfmsoftware.utility.model.model.User;
 public class DfmRealm {
 
     private static DfmRealm INSTANCE;
+
     public static DfmRealm getInstance(){
         if(INSTANCE == null){
             INSTANCE = new DfmRealm();
@@ -32,14 +34,28 @@ public class DfmRealm {
     public void initRealm(@NonNull Context context) { Realm.init(context); }
 
     /** USER CONTEXT**/
-    public void addOrUpdateUser(@NonNull User user){ //method adds user if doesn't exist
+    public void addOrUpdateUser(@NonNull User user) {
+        if (user.getUsername() == null || user.getUsername().isEmpty()) {
+            Logger.e("Error","User has no username. Cannot add or update.");
+            return;
+        }
+
         Realm realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
-        realm.insertOrUpdate(user);
-        realm.commitTransaction();
+        try {
+            realm.beginTransaction();
+            realm.insertOrUpdate(user);
+            realm.commitTransaction();
+        } catch (Exception e) {
+            if (realm.isInTransaction()) {
+                realm.cancelTransaction();
+            }
+            Logger.e("Error","Error adding/updating user in Realm");
+        } finally {
+            realm.close();
+        }
     }
 
-    public User getCurrentUser(){ //
+    public User getCurrentUser() {
         Realm realm = Realm.getDefaultInstance();
         return realm.where(User.class).findFirst();
     }

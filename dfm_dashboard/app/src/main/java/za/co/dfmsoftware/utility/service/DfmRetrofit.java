@@ -63,10 +63,11 @@ public class DfmRetrofit implements ApiInterface {
     }
 
     /* USERS */
+    @SuppressLint("CheckResult")
     @Override
     public Observable<User> authenticateUser(String grantType, String username, String password) {
         return Observable.create(e -> {
-            disposable = this.dfmEndpoint.authenticateUser(grantType, username, password)
+            this.dfmEndpoint.authenticateUser(grantType, username, password)
                     .subscribeOn(Schedulers.io())
                     .observeOn(Schedulers.io())
                     .subscribe(user -> {
