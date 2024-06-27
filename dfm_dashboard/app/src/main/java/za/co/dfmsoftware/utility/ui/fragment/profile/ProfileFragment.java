@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -11,6 +12,7 @@ import za.co.dfmsoftware.utility.R;
 import za.co.dfmsoftware.utility.realm.DfmRealm;
 import za.co.dfmsoftware.utility.ui.base.BaseFragment;
 import za.co.dfmsoftware.utility.ui.login.LoginActivity;
+import za.co.dfmsoftware.utility.utils.SendEmail;
 
 public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, ProfileContract.View> implements ProfileContract.View {
 
@@ -39,27 +41,26 @@ public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, Pro
         this.presenter.init();
 
         deleteAccountButton.setOnClickListener(v -> {
-//            String userEmail = emailAddressTextView.getText().toString();
-//            if (!userEmail.isEmpty()) {
-//                String subject = "Request to delete Account";
-//                String message = "Please delete my user Account. My email address is: " + userEmail;
-//                String recipientAddress = "nehemiah@dfmsoftware.co.za";
-//
-//                Intent emailIntent = SendEmail.createEmailIntent(recipientAddress, subject, message);
-//
-//                try {
-//                    startActivity(Intent.createChooser(emailIntent, "Send email using..."));
-//                } catch (android.content.ActivityNotFoundException e) {
-//                    Toast.makeText(getContext(), "No email clients installed on device.", Toast.LENGTH_LONG).show();
-//                }
-//            } else {
-//                Toast.makeText(getContext(), "User email not found", Toast.LENGTH_SHORT).show();
-//            }
+            String userEmail = emailAddressTextView.getText().toString();
+            if (!userEmail.isEmpty()) {
+                String subject = "Request to delete Account";
+                String message = "Please delete my user Account. My email address is: " + userEmail;
+                String recipientAddress = "nehemiah@dfmsoftware.co.za";
+
+                Intent emailIntent = SendEmail.createEmailIntent(recipientAddress, subject, message);
+
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+                } catch (android.content.ActivityNotFoundException e) {
+                    Toast.makeText(getContext(), "No email clients installed on device.", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "User email not found", Toast.LENGTH_SHORT).show();
+            }
         });
 
         logoutButton.setOnClickListener(v -> {
             System.out.println("Start logout intent");
-            //todo logout
             DfmRealm dfmRealm = this.getDfmRealm();
             dfmRealm.clearAllData();
 
