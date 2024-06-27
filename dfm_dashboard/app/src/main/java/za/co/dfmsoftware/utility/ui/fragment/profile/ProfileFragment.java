@@ -60,7 +60,6 @@ public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, Pro
         });
 
         logoutButton.setOnClickListener(v -> {
-            System.out.println("Start logout intent");
             DfmRealm dfmRealm = this.getDfmRealm();
             dfmRealm.clearAllData();
 
