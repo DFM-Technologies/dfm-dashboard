@@ -66,6 +66,8 @@ dependencies {
     implementation libs.adapter.rxjava2
     implementation libs.flexbox
 
+    implementation libs.android.mail //send email
+    implementation libs.android.activation //send email
 }
 
 realm {

@@ -1,5 +1,6 @@
 package za.co.dfmsoftware.utility.ui.fragment.profile;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -7,7 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import za.co.dfmsoftware.utility.R;
+import za.co.dfmsoftware.utility.realm.DfmRealm;
 import za.co.dfmsoftware.utility.ui.base.BaseFragment;
+import za.co.dfmsoftware.utility.ui.login.LoginActivity;
 
 public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, ProfileContract.View> implements ProfileContract.View {
 
@@ -35,12 +38,35 @@ public class ProfileFragment extends BaseFragment<ProfileContract.Presenter, Pro
         this.deleteAccountButton = view.findViewById(R.id.delete_account_button);
         this.presenter.init();
 
-        logoutButton.setOnClickListener(v -> {
-            System.out.println("Start logout intent");
+        deleteAccountButton.setOnClickListener(v -> {
+//            String userEmail = emailAddressTextView.getText().toString();
+//            if (!userEmail.isEmpty()) {
+//                String subject = "Request to delete Account";
+//                String message = "Please delete my user Account. My email address is: " + userEmail;
+//                String recipientAddress = "nehemiah@dfmsoftware.co.za";
+//
+//                Intent emailIntent = SendEmail.createEmailIntent(recipientAddress, subject, message);
+//
+//                try {
+//                    startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+//                } catch (android.content.ActivityNotFoundException e) {
+//                    Toast.makeText(getContext(), "No email clients installed on device.", Toast.LENGTH_LONG).show();
+//                }
+//            } else {
+//                Toast.makeText(getContext(), "User email not found", Toast.LENGTH_SHORT).show();
+//            }
         });
 
-        deleteAccountButton.setOnClickListener(v -> {
-            System.out.println("Start delete account intent");
+        logoutButton.setOnClickListener(v -> {
+            System.out.println("Start logout intent");
+            //todo logout
+            DfmRealm dfmRealm = this.getDfmRealm();
+            dfmRealm.clearAllData();
+
+            Intent loginIntent = new Intent(this.getActivity(), LoginActivity.class);
+            loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            this.startActivity(loginIntent);
+            this.getActivity().finish();
         });
     }
 
