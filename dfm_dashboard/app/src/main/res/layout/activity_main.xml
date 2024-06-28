@@ -58,4 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- original background for bot nav:
+    android:background="?android:attr/windowBackground" -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

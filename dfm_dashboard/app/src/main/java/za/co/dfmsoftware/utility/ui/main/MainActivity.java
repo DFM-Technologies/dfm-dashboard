@@ -2,6 +2,7 @@ package za.co.dfmsoftware.utility.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +27,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
     private MainContract.Presenter presenter;
     private NavigationBarView navigationBarView;
     private Toolbar toolbar;
+    private FrameLayout contentFrame;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -66,6 +68,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
     protected void setupViews() {
         toolbar = findViewById(R.id.app_toolbar);
         navigationBarView = findViewById(R.id.bottom_navigation_view);
+        contentFrame = findViewById(R.id.content_frame);
 
         //BOTTOM NAV
         navigationBarView.setOnItemSelectedListener(onItemSelectedListener);
@@ -78,7 +81,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
             int itemId = item.getItemId();
             if(itemId == R.id.nav_dashboard_bot) {
                 this.showFragment(DashboardFragment.class, false);
-                this.setupFragmentToolbarTitle(this.toolbar);
+                this.setupFragmentToolbarTitle(this.toolbar);//todo actually publish app for once
             }else if(itemId == R.id.nav_profile_bot) {
                 this.showFragment(ProfileFragment.class, false);
                 this.setupFragmentToolbarTitle(this.toolbar);
@@ -87,6 +90,6 @@ public class MainActivity extends BaseActivity<MainContract.Presenter, MainContr
             Logger.e(TAG, "Error on menu item: ", e);
         }
 
-        return false;
+        return true;
     };
 }

@@ -19,4 +19,7 @@
     <color name="materialYellow">#AAF9A825</color>
     <color name="materialRed60">#AAC62828</color>
 
+    <color name="dashboard_background">#2E62FF</color>
+    <color name="profile_background">#2E62FF</color>
+
 </resources>

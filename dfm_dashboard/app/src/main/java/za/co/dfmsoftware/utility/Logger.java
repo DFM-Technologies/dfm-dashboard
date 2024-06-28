@@ -20,5 +20,8 @@ public class Logger {
 
     public static void logMessages(Throwable throwable){
         //TODO Fabric initialisation
+        //todo bot nav change background
+        //todo bug - not moving from dashboard to profile
+        //todo add delete account prompt
     }
 }
